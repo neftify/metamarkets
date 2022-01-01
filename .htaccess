@@ -1,0 +1,42 @@
+# Don't list directories
+Options -Indexes
+
+# Restrict Access to Files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|key)$">
+	order allow,deny
+	deny from all
+</FilesMatch>
+
+# Error Documents
+ErrorDocument 404 /not-found
+  
+# Avoiding the user to know is a 403 error
+ErrorDocument 403 /not-found
+
+# Optimize Bandwith use
+#php_value output_handler ob_gzhandler
+
+# RESET CACHE
+#Disables GZIP
+#SetEnv no-gzip 1
+    
+#Turns off the expires headers for Apache
+<IfModule mod_expires.c>
+  #ExpiresActive Off
+</IfModule>
+
+# Disable Caching
+<IfModule mod_headers.c>
+    #Header set Cache-Control "no-cache, no-store, must-revalidate"
+    #Header set Pragma "no-cache"
+    #Header set Expires 0
+</IfModule>
+
+# REWRITES
+RewriteEngine On
+
+# Routing Control
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.5",
+        "paragonie/halite": "^4",
+        "sc0vu/web3.php": "dev-master"
+    }
+}
