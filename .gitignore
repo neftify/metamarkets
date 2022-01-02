@@ -18,3 +18,5 @@ mailchimp*
 class.users.php
 index.php
 lib.php
+setup-account.php
+uploads/

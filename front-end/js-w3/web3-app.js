@@ -36,7 +36,7 @@ var app = new Vue({
       if (web3ModalProv) {
         window.web3 = web3ModalProv;
         try {
-          this.login("web3-ajax-lender");
+          this.login("web3-ajax-user");
         } catch (error) {
           console.log(error);
           this.state = 'signTheMessage';

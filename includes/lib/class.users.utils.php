@@ -1,50 +1,61 @@
 <?php
 
-    function get_count_of_guilds() {
-        return get_users('count', array(
-			0 => array("type" => "CHR", "condition" => "AND", "loose" => false, "table" => "type", "command" => "=", "value" => "guild")
-		));
-    }
-
-    function get_count_of_players() {
-        return get_users('count', array(
-			0 => array("type" => "CHR", "condition" => "AND", "loose" => false, "table" => "type", "command" => "=", "value" => "player")
-		));
-    }
-
     function get_user_profile_image($id_user = '') {
-        return get_user_metadata($id_user, 'profile-image');
+        return get_user_specific_metadata($id_user, 'profile-image');
     }
 
     function get_user_name($id_user = '') {
-        return get_user_metadata($id_user, 'fullname');
+        return get_user_specific_metadata($id_user, 'fullname');
     }
 
     function get_user_description($id_user = '') {
-        return get_user_metadata($id_user, 'description');
+        return get_user_specific_metadata($id_user, 'description');
     }
 
     function get_user_twitter($id_user = '') {
-        return get_user_metadata($id_user, 'twitter');
+        return get_user_specific_metadata($id_user, 'twitter');
     }
 
     function get_user_discord($id_user = '') {
-        return get_user_metadata($id_user, 'discord');
+        return get_user_specific_metadata($id_user, 'discord');
     }
 
     function get_user_medium($id_user = '') {
-        return get_user_metadata($id_user, 'medium');
+        return get_user_specific_metadata($id_user, 'medium');
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    function is_guild() {
+        global $user;
+
+        if($user['type']=='guild') {
+            return true;
+        }
+
+        return false;
     }
 
     function get_guild_description($id_user = '') {
         $description = get_user_description($id_user);
 
         if(!$description) {
-            $description = get_user_name($guild['id_user'])." is a guild with players in different P2E games and ecosystems in the Metaverse.";
+            $description = get_user_name($id_user)." has no about section.";
         }
 
         return $description;
     }
+
+    function get_player_description($id_user = '') {
+        $description = get_user_description($id_user);
+
+        if(!$description) {
+            $description = get_user_name($id_user)." has no about section.";
+        }
+
+        return $description;
+    }
+
 
     function get_user_category_in_name_form($id_user = '') {
         global $user; 
@@ -60,16 +71,22 @@
         return $name_form;
     }
 
-    function return_user_uri($id_user) {
+    function return_user_uri($id_user = '') {
+        global $user;
         $uri = '';
 
-        $user = get_user_by_id($id_user);
-
-        if($user['type']=='guild') {
-            $uri = "/guild/".$user['uri'];
+        if($id_user) {
+            $user_q = get_user_by_id($id_user);
         }
-        elseif($user['type']=='player') {
-            $uri = "/player/".$user['uri'];
+        else {
+            $user_q = $user;
+        }
+
+        if($user_q['type']=='guild') {
+            $uri = "/guild/".$user_q['uri'];
+        }
+        elseif($user_q['type']=='player') {
+            $uri = "/player/".$user_q['uri'];
         }
 
         return $uri;
@@ -84,7 +101,7 @@
         }
     }
 
-    function get_user_metadata($id_user = '', $metadata) {
+    function get_user_specific_metadata($id_user = '', $metadata) {
         global $user;
 
         $value = '';
@@ -97,5 +114,25 @@
         }
 
         return $value;
+    }
+
+    function get_count_of_guilds() {
+        return get_users('count', array(
+			0 => array("type" => "CHR", "condition" => "AND", "loose" => false, "table" => "type", "command" => "=", "value" => "guild")
+		));
+    }
+
+    function get_count_of_players() {
+        return get_users('count', array(
+			0 => array("type" => "CHR", "condition" => "AND", "loose" => false, "table" => "type", "command" => "=", "value" => "player")
+		));
+    }
+
+    function is_profile_missing_something() {
+        global $user;
+
+        if(!get_user_description($user['id_user']) || !get_user_twitter($user['id_user']) || !get_user_discord($user['id_user']) || !get_user_medium($user['id_user'])) {
+            return true;
+        }
     }
 ?>

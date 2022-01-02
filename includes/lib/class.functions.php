@@ -49,6 +49,21 @@
         return false;
 	}
 
+	function is_url($url, $domain = '') {
+
+		if (!filter_var($url, FILTER_VALIDATE_URL)) {
+			return false;
+		} 
+
+		if($domain!='') {
+			if(strpos($url, $domain) === false) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	function unix_to_date($unix, $date_format = '') {
 		if($date_format == '') {
 			$date_format = 'Y-m-d H:i:s';

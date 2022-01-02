@@ -103,6 +103,11 @@
 
 				<?php
 					if($user) {
+						$image = get_user_profile_image();
+
+						if(!$image) {
+							$image = '/front-end/images/user-avatar-small-01.jpg';
+						}
 				?>
 				<!-- User Menu -->
 				<div class="header-widget">
@@ -110,7 +115,7 @@
 					<!-- Messages -->
 					<div class="header-notifications user-menu">
 						<div class="header-notifications-trigger">
-							<a href="#"><div class="user-avatar status-online"><img src="<?php echo get_user_profile_image(); ?>" alt=""></div></a>
+							<a href="#"><div class="user-avatar status-online"><img src="<?php echo $image; ?>" alt=""></div></a>
 						</div>
 
 						<!-- Dropdown -->
@@ -121,7 +126,7 @@
 
 								<!-- User Name / Avatar -->
 								<div class="user-details">
-									<div class="user-avatar status-online"><img src="<?php echo get_user_profile_image(); ?>" alt=""></div>
+									<div class="user-avatar status-online"><img src="<?php echo $image; ?>" alt=""></div>
 									<div class="user-name">
 										<?php echo get_user_name(); ?> <span><?php echo get_user_category_in_name_form(); ?></span>
 									</div>
@@ -130,7 +135,7 @@
 						
 						<ul class="user-menu-small-nav">
 							<li><a href="/dashboard"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
-							<li><a href="/settings"><i class="icon-material-outline-settings"></i> Settings</a></li>
+							<li><a href="/dashboard-profile"><i class="icon-material-outline-settings"></i> Profile</a></li>
 							<li><a href="/logout"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
 						</ul>
 
