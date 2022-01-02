@@ -131,7 +131,7 @@
     function is_profile_missing_something() {
         global $user;
 
-        if(!get_user_description($user['id_user']) || !get_user_twitter($user['id_user']) || !get_user_discord($user['id_user']) || !get_user_medium($user['id_user'])) {
+        if(!get_user_description($user['id_user']) || !get_user_twitter($user['id_user']) || !get_user_discord($user['id_user'])) {
             return true;
         }
     }
