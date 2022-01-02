@@ -1,0 +1,30 @@
+<?php
+
+if ( isset($_POST['submit']) ) {
+
+    // Profile need to be completed
+    if(is_profile_missing_something()) {
+        $form_error = 'Please complete your profile before submiting an application.';
+    }
+
+    // Verify if you already applied 
+    if(is_user_already_applied($user['id_user'], $guild['id_user'])) {
+        $form_error = 'You already applied with this guild.';
+    }
+
+    // Need to be log in
+    if(!$user || $user['type']!='player') {
+        $form_error = 'Please log in with a player account.';
+    }
+
+    if(empty($form_error)) { 
+        if(new_application($user['id_user'], $guild['id_user'])) {
+            $form_success = 'Great! Your application was sent.';
+        }
+        else {
+            $form_error = 'An error occured, please try again later.';
+        }
+    }
+
+}
+?>

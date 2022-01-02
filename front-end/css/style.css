@@ -14218,7 +14218,7 @@ text-overflow: ellipsis; */
 }
 
 /* Apply Now Button */
-a.apply-now-button {
+.apply-now-button {
 	background-color: #66676b;
 	color: #fff;
 	text-align: center;
@@ -14231,12 +14231,12 @@ a.apply-now-button {
 	display: block;
 }
 
-a.apply-now-button:hover {
+.apply-now-button:hover {
 	transform: translateY(-3px);
 	box-shadow: 0 2px 8px rgba(102,103,107,0.35);
 }
 
-a.apply-now-button i {
+.apply-now-button i {
 	font-size: 22px;
 	position: relative;
 	line-height: 0;

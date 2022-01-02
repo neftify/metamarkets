@@ -50,6 +50,7 @@
 		<div class="col-xl-8 col-lg-8 content-right-offset">
 
 			<div class="single-page-section">
+				<?php show_message(); ?>
 				<h3 class="margin-bottom-25">About <?php echo get_user_name($guild['id_user']); ?></h3>
 				<p><?php echo get_guild_description($guild['id_user']); ?></p>
 			</div>
@@ -62,7 +63,9 @@
 			<div class="sidebar-container">
 
                 <div class="sidebar-widget">
-                    <a href="#" class="apply-now-button popup-with-zoom-anim">Apply Now <i class="icon-material-outline-arrow-right-alt"></i></a>
+					<form method="post">
+                    	<button name="submit" type="submit" class="button button-sliding-icon apply-now-button">Apply Now <i class="icon-material-outline-arrow-right-alt"></i></button>
+					</form>
                 </div>
 
 				<!-- Widget -->
