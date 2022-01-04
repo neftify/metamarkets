@@ -72,7 +72,7 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="/"><img src="/front-end/images/logo.png" alt=""></a>
+					<a href="/"><img src="/front-end/images/logo-2.png" alt=""></a>
 				</div>
 
 				<!-- Main Navigation -->

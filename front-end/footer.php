@@ -18,7 +18,7 @@
 						<div class="footer-rows-left">
 							<div class="footer-row">
 								<div class="footer-row-inner footer-logo">
-									<img src="/front-end/images/logo-white.png" alt="">
+									<img src="/front-end/images/logo-white-2.png" alt="">
 								</div>
 							</div>
 						</div>

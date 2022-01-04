@@ -24,8 +24,8 @@
             echo '<meta property="og:image" content="'.$array['image'].'" />'."\n";
         }
         else {
-            echo '<meta name="twitter:image" content="'.get_domain().'/front-end/images/social-media-picture.jpg">'."\n";
-            echo '<meta property="og:image" content="'.get_domain().'/front-end/images/social-media-picture.jpg" />'."\n";
+            echo '<meta name="twitter:image" content="'.get_domain().'/front-end/images/social-media-picture-2.jpg">'."\n";
+            echo '<meta property="og:image" content="'.get_domain().'/front-end/images/social-media-picture-2.jpg" />'."\n";
         }
 
         //Url 
