@@ -140,7 +140,7 @@
 									<div class="col-xl-6">
 										<div class="submit-field">
 											<h5>Twitter Link</h5>
-											<input type="text" class="with-border" name="twitter" placeholder="<?php echo get_twitter_link(); ?>" value="<?php echo get_user_twitter(); ?>">
+											<input type="text" class="with-border" name="twitter" placeholder="Example: <?php echo get_twitter_link(); ?>" value="<?php echo get_user_twitter(); ?>">
 										</div>
 									</div>
 
@@ -149,22 +149,22 @@
                                             <?php
                                                 if(is_guild()) {
                                                     echo '<h5>Discord Link</h5>';
-                                                    $placeholder = get_main_discord_link();;
+                                                    $placeholder = 'Example: '.get_main_discord_link();;
                                                 }
                                                 else {
                                                     echo '<h5>Discord Username (include the last 4 numbers)</h5>';
-                                                    $placeholder = 'neftify#1234';
+                                                    $placeholder = 'Example: neftify#1234';
                                                 }
                                             ?>
 											
-											<input type="text" class="with-border" name="discord" placeholder="<?php echo $placeholder; ?>" value="<?php echo get_user_discord(); ?>">
+											<input type="text" class="with-border" name="discord" placeholder="Example: <?php echo $placeholder; ?>" value="<?php echo get_user_discord(); ?>">
 										</div>
 									</div>
 
 									<div class="col-xl-6">
 										<div class="submit-field">
 											<h5>Medium Link</h5>
-											<input type="text" class="with-border" name="medium" placeholder="<?php echo get_medium_link(); ?>" value="<?php echo get_user_medium(); ?>">
+											<input type="text" class="with-border" name="medium" placeholder="Example: <?php echo get_medium_link(); ?>" value="<?php echo get_user_medium(); ?>">
 										</div>
 									</div>
 								</div>

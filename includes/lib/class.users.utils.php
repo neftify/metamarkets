@@ -106,11 +106,11 @@
 
         $value = '';
         if($id_user) {
-            $value = get_metadata_by_user_id($id_user, $metadata);
+            $value = get_metadata_value_by_user_id($id_user, $metadata);
         }
         else {
             // get image from login user
-            $value = get_metadata_by_user_id($user['id_user'], $metadata);
+            $value = get_metadata_value_by_user_id($user['id_user'], $metadata);
         }
 
         return $value;

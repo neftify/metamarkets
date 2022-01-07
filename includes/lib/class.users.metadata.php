@@ -33,7 +33,7 @@
 		return false;
 	}
 
-	function get_metadata_by_user_id($id_user, $metadata) {
+	function get_metadata_value_by_user_id($id_user, $metadata) {
 		global $db;
 		
 		$q = $db->prepare ( "SELECT * FROM mm_users_metadata WHERE id_user = ? AND `name` = ? LIMIT 1" );
@@ -44,6 +44,22 @@
 		while ( $o = $result->fetch_array(MYSQLI_ASSOC) ) {	
 			if ( $o['id_user'] == $id_user ) {
 				return $o['value'];
+			}		
+		}
+		return false;
+	}
+
+	function get_metadata_by_user_id($id_user, $metadata) {
+		global $db;
+		
+		$q = $db->prepare ( "SELECT * FROM mm_users_metadata WHERE id_user = ? AND `name` = ? LIMIT 1" );
+		$q->bind_param ( 'is', $id_user, $metadata );
+		$q->execute();
+		$result = $q->get_result();
+	
+		while ( $o = $result->fetch_array(MYSQLI_ASSOC) ) {	
+			if ( $o['id_user'] == $id_user ) {
+				return $o;
 			}		
 		}
 		return false;

@@ -4,7 +4,7 @@ if ( isset($_POST['submit']) ) {
 
     // Profile need to be completed
     if(is_profile_missing_something()) {
-        $form_error = 'Please complete your profile before submiting an application.';
+        $form_error = 'Please complete your profile before submiting an application. You will need to add a Twitter, Discord username and a profile description. You can do that by clicking <a href="/dashboard-profile">here</a>.';
     }
 
     // Verify if you already applied 

@@ -78,7 +78,7 @@
 
                     foreach($query as $id => $value) {
                         //lets verify if it does not match the correct letter
-                        $name = trim(get_metadata_by_user_id($value['id_user'], 'fullname'));
+                        $name = trim(get_metadata_value_by_user_id($value['id_user'], 'fullname'));
                         $first_character = strtolower($name[0]);
                         if($first_character!=$q) {
                             continue;
