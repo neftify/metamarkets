@@ -79,6 +79,14 @@
 				<nav id="navigation">
 					<ul id="responsive">
 
+						<?php
+							if($user) {
+						?>
+							<li><a href="/dashboard">My Dashboard</a></li>
+						<?php
+							}
+						?>
+
 						<li><a href="/about">About</a></li>
 
 						<li><a href="/guilds">Find Guilds</a></li>
